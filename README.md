@@ -38,4 +38,4 @@ and then,
     }
 
 
-See demo.html and demo_ajax.html for more information
+See <b>demo.html</b> and <b>demo_ajax.html</b> for more information
