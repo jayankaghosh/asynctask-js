@@ -36,6 +36,15 @@ and then,
     if(mAsyncTask.exists){
     	mAsyncTask.execute();
     }
+    
+<b>Additional methods</b>
+
+You may use
+    
+     var mAsyncTask = new AsyncTask(pre,background,post);
+     mAsyncTask.delay(x);
+    
+To delay the background task by x milliseconds (eg, mAsyncTask.delay(2000))
 
 
 See <b>demo.html</b> and <b>demo_ajax.html</b> for more information
