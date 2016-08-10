@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax implementation</title>
+</head>
+<script type="text/javascript" src="src/AsyncTask.js"></script>
+<script type="text/javascript">
+	function onPreExecute(){
+		console.log('onPreExecute');
+	}
+	var ajaxObj = {
+		url: 'php/data.php',
+		method: 'POST',
+		data: {
+			name: 'John Doe'
+		}
+	};
+	function onPostExecute(status,response){
+		console.log('done');
+		console.log('status: '+status);
+		console.log('response: '+response);
+	}
+
+	function sendAjax(){
+		var obj = new AsyncTask(onPreExecute,ajaxObj,onPostExecute);
+		if(obj.exists){
+			obj.execute();
+		}
+	}
+</script>
+<body>
+	<button onclick="sendAjax()">Send Ajax Request</button>
+</body>
+</html>

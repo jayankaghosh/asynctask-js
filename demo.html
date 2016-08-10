@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AsyncTask in Javascript</title>
+</head>
+<script type="text/javascript" src="src/AsyncTask.js"></script>
+<script type="text/javascript">
+	function onPreExecute(){
+		console.log('onPreExecute');
+	}
+	function doInBackground(){
+		console.log('working');
+		for(var i=0;i<99999;i++){
+			for(var j=0;j<9999;j++){
+				//do something
+			}
+		}	
+		console.log('data sent from doInBackground');
+		return 'I am data sent from background';
+		
+	}
+	function onPostExecute(status,response){
+		console.log('done');
+		console.log('status: '+status);
+		console.log('response: '+response);
+	}
+
+	function doTask(){
+		var obj = new AsyncTask(onPreExecute,doInBackground,onPostExecute);
+		if(obj.exists){
+			obj.execute();
+		}
+	}
+</script>
+<body>
+	<button onclick="doTask()">Do Background Task</button>
+</body>
+</html>
