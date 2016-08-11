@@ -6,7 +6,7 @@
 <script type="text/javascript" src="src/AsyncTask.js"></script>
 <script type="text/javascript">
 	function onPreExecute(){
-		console.log('onPreExecute');
+		document.getElementById('info').innerHTML = "<br><br>onPreExecute";
 	}
 	var ajaxObj = {
 		url: 'php/data.php',
@@ -16,9 +16,9 @@
 		}
 	};
 	function onPostExecute(status,response){
-		console.log('done');
-		console.log('status: '+status);
-		console.log('response: '+response);
+		document.getElementById('info').innerHTML = "<br>done";
+		document.getElementById('info').innerHTML = "<br>status: "+status;
+		document.getElementById('info').innerHTML = "<br>response: "+response;
 	}
 
 	function sendAjax(){
@@ -30,5 +30,6 @@
 </script>
 <body>
 	<button onclick="sendAjax()">Send Ajax Request</button>
+	<div id="info"></div>
 </body>
 </html>
