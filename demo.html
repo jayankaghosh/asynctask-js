@@ -6,23 +6,23 @@
 <script type="text/javascript" src="src/AsyncTask.js"></script>
 <script type="text/javascript">
 	function onPreExecute(){
-		console.log('onPreExecute');
+		document.getElementById('info').innerHTML += "<br><br>onPreExecute";
 	}
 	function doInBackground(){
-		console.log('working');
+		document.getElementById('info').innerHTML += "<br>working";
 		for(var i=0;i<99999;i++){
 			for(var j=0;j<9999;j++){
 				//do something
 			}
 		}	
-		console.log('data sent from doInBackground');
+		document.getElementById('info').innerHTML += "<br>Data sent from background";
 		return 'I am data sent from background';
 		
 	}
 	function onPostExecute(status,response){
-		console.log('done');
-		console.log('status: '+status);
-		console.log('response: '+response);
+		document.getElementById('info').innerHTML += "<br>done";
+		document.getElementById('info').innerHTML += "<br>status: "+status;
+		document.getElementById('info').innerHTML += "<br>response: "+response;
 	}
 
 	function doTask(){
@@ -34,5 +34,6 @@
 </script>
 <body>
 	<button onclick="doTask()">Do Background Task</button>
+	<div id="info"></div>
 </body>
 </html>
