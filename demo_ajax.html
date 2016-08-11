@@ -5,6 +5,7 @@
 </head>
 <script type="text/javascript" src="src/AsyncTask.js"></script>
 <script type="text/javascript">
+	var obj;
 	function onPreExecute(){
 		document.getElementById('info').innerHTML += "<br><br>onPreExecute";
 	}
@@ -22,7 +23,14 @@
 	}
 
 	function sendAjax(){
-		var obj = new AsyncTask(onPreExecute,ajaxObj,onPostExecute);
+		obj = new AsyncTask(onPreExecute,ajaxObj,onPostExecute);
+		if(obj.exists){
+			obj.execute();
+		}
+	}
+	function giveDelay(t){
+		obj = new AsyncTask(onPreExecute,ajaxObj,onPostExecute);
+		obj.delay(2000);
 		if(obj.exists){
 			obj.execute();
 		}
@@ -30,6 +38,7 @@
 </script>
 <body>
 	<button onclick="sendAjax()">Send Ajax Request</button>
+	<button onclick="giveDelay(2000)">Give 2 second delay</button>
 	<div id="info"></div>
 </body>
 </html>
