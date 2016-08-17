@@ -33,8 +33,8 @@ and then,
     	else{...}
     }
     var mAsyncAjax = new AsyncTask(onPreExecute,ajaxObj,onPostExecute);
-    if(mAsyncTask.exists){
-    	mAsyncTask.execute();
+    if(mAsyncAjax.exists){
+    	mAsyncAjax.execute();
     }
     
 <b>Additional methods</b>
